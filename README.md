@@ -64,6 +64,48 @@ Each persona file has `[CUSTOMIZE]` markers where you should add your own contex
 
 For a full morning workflow, check out [claude-burndown](https://github.com/christinebuilds/claude-burndown) which includes `/gm` (morning brief), `/daily-tasks` (email triage), and 16 other commands.
 
+## Optional: Notion Command Center
+
+Home Staff works great from the CLI alone, but if you want a visual hub your whole household can see, connect it to a Notion workspace via MCP.
+
+### Home Stack layout
+
+The **Home Stack** is a single Notion page that serves as your command center, organized by life area:
+
+| Section | What goes here |
+|---------|---------------|
+| 🧠 **How It Works** | Overview and views (My Week, Overdue, Today, Inbox, Burndown Queue) |
+| 📋 **Databases** | Projects, Tasks, and Recurring Tasks databases |
+| 🏠 **Home Ops** | Household management and daily operations |
+| 💰 **Finance** | Benefits, claims, budgeting |
+| 💪 **Health** | Medical prep, wellness, self check-ins |
+| 💼 **Career** | Job search, networking, professional growth |
+| 🔒 **Security** | Credentials, access audits, supply chain security |
+| 🍳 **Kitchen** | Pantry inventory, grocery lists |
+| ✍️ **Writing** | Creative projects and publishing |
+| 💻 **Code** | Dev projects and tools |
+| 🌍 **Kinship Earth** | Environmental data and integrations |
+| ⚖️ **Legal** | Legal matters and compliance |
+| ☀️ **Daily Briefs** | Archive of morning briefs from `/gm` |
+
+### Automated report routing
+
+When you run automated commands, their outputs get saved to the matching Notion section:
+
+- `/gm` morning briefs → ☀️ Daily Briefs
+- `/security-check` → 🔒 Security
+- `/nn` burndown → relevant project area
+- `/daily-tasks` → 💰 Finance or 💼 Career as appropriate
+
+This gives you a single review surface — no hunting through CLI logs.
+
+### Setup
+
+1. Add the [Notion MCP server](https://github.com/anthropics/claude-code) to your Claude Code config
+2. Create a top-level "Home Stack" page in Notion
+3. Add Projects, Tasks, and Recurring Tasks databases
+4. Organize sections by your own life areas (use the table above as a starting point)
+
 ## Philosophy
 
 - **Presence over productivity** — the goal isn't to optimize your household, it's to free up your brain for the things only a human can do
